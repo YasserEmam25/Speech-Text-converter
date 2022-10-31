@@ -23,13 +23,15 @@ const accents = {
   usa: "en-US",
 };
 
+app.use(express.json({ limit: "50mb" }));
+
 app.get("/", (req, res) => {
   res.send("Use post man");
 });
 
 app.post("/", (req, res) => {
   const accent = accents[req.body.accent];
-  const audio = req.body.audioEncoded.toString("base64");
+  const audio = req.body.audio.toString("base64");
   converter(audio, accent).then((result) => {
     result = result
       ? "Speech converted successfully"

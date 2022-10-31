@@ -1,6 +1,5 @@
 const speech = require("@google-cloud/speech");
 const fs = require("fs");
-require("dotenv").config();
 
 const converter = async (audioInput, accent) => {
   try {
@@ -12,8 +11,8 @@ const converter = async (audioInput, accent) => {
 
     // let config;
     const config = {
-      encoding: "AMR",
-      sampleRateHertz: 8000,
+      encoding: "MP3",
+      sampleRateHertz: 16000,
       languageCode: accent,
     };
 
